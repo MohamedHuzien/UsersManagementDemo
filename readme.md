@@ -10,6 +10,7 @@
 - run `npm install` to install gulp and laravel-elixir
 - run `gulp` or `gulp --production` to build and move style and script to public folder
 - now you can run `vendor/bin/phpunit`  
+- login with `admin@zwaar.org` and `123456`
 
 ## what this repo contain 
  this sample users management demo has one table `users` with 
