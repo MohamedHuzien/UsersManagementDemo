@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: mh
- * Date: 21/01/18
- * Time: 10:47 م
- */
 
 namespace Tests\Unit;
 use Tests\TestCase;
@@ -22,7 +16,8 @@ class UserManagementSystemTest extends TestCase
      */
 
 
-    public function testUserCanLogin()
+    /**  @test */
+    public function user_can_login()
     {
 
         $user  = factory(\App\User::class)->create();
@@ -37,7 +32,9 @@ class UserManagementSystemTest extends TestCase
         $response->assertSeeText($user->name);
     }
 
-    public function testAdminCanAddUsers()
+
+    /**  @test */
+    public function admin_can_add_users()
     {
 
         $user  = factory(\App\User::class)->make();
@@ -54,7 +51,10 @@ class UserManagementSystemTest extends TestCase
             'email' => $user->email
         ]);
     }
-    public function testCanNotUserCanAddUsers()
+
+
+    /**  @test */
+    public function users_must_have_admin_role_to_be_able_to_add_users()
     {
         $user  = factory(\App\User::class)->make(["is_admin" => 0]);
         $this->be($user);
@@ -71,6 +71,25 @@ class UserManagementSystemTest extends TestCase
             'email' => $user->email
         ]);
 
+    }
+
+    /**
+     * it's better to make theses tests as feature tests not unit
+     * and each feature to be in its own file with readable name
+     */
+
+    /** @test */
+    public function admin_can_remove_users(){
+            
+            $this->assertTrue(true);
+            /** @todo */
+    }
+    
+    /** @test */
+    public function admin_can_edit_users(){
+            
+            $this->assertTrue(true);
+            /** @todo */
     }
 
 
